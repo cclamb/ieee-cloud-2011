@@ -1,4 +1,4 @@
-\documentclass{book}
+\documentclass[notitlepage]{book}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -6,28 +6,35 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{setspace}
 \usepackage{Generic}
+
+
+
+
 \author{Christopher C. Lamb, Pramod A. Jamkhedkar, Gregory L. Heileman}
 \title{Usage Management in the Cloud}
+
 \begin{document}
+\setlength{\parskip}{0pt}
+\let\cleardoublepage\clearpage
 \pagenumbering{roman}
 \begin{doublespace}
 \maketitle 
-\frontmatter
+%\frontmatter
 \tableofcontents
-\mainmatter
+%\mainmatter
 \pagenumbering{arabic}
 \chapter{Usage Management in the Cloud}
 \section{Introduction}
-The characteristics of cloud computing services tend to differ from those of grid and cluster-based computing applications.  Specifically, cloud services tend to be more market oriented, and they typically host entire user applications within the distributed cloud environment. These characteristics raise serious concerns from cloud users' perspective regarding the manner in which their data are handled or used by the cloud services. These metrics are orthogonal to the traditional performance-oriented quality of service (QoS) metrics, and their semantics are well beyond encryption and privacy requirements. Existing service level agreement (SLA) frameworks focus primarily on performance-oriented QoS parameters, and are not designed for expressing and enforcing policies to control the manner and restrictions under which users' data need to be handled~\cite{WSA, WSLA, WSP,PaRaSh:09}. User concerns on data handling in the cloud along with the limitations of existing SLA frameworks to express, reason and enforce data usage policies in an automated manner creates the need for usage management in cloud computing. 
+The characteristics of cloud computing services tend to differ from those of grid and cluster-based computing applications.  Specifically, cloud services tend to be more market oriented, and they typically host entire user applications within the distributed cloud environment. These characteristics raise serious concerns from cloud users' perspective regarding the manner in which their data are handled or used by the cloud services. These metrics are orthogonal to the traditional performance-oriented quality of service (QoS) metrics, and their semantics are well beyond encryption and privacy requirements. Existing service level agreement (SLA) frameworks focus primarily on performance-oriented QoS parameters, and are not designed for expressing and enforcing policies to control the manner and restrictions under which users' data need to be handled~\cite{WSLA,WSA,PaRaSh:09,WSP}. User concerns on data handling in the cloud along with the limitations of existing SLA frameworks to express, reason and enforce data usage policies in an automated manner creates the need for usage management in cloud computing. 
  
 Usage management is the collective set of processes and mechanisms that enables one to manage and control how data are
-used within a system. This encompasses policy specification languages, licensing mechanisms, policy expression and reasoning mechanisms, policy enforcement mechanisms, usage tracking, along with supporting authentication and encryption mechanisms~\cite{PaSa:04,JaHeLa:10}. The ability to express fine-grained usage policies will provide cloud users with greater trust regarding the usage of their data within clouds, and will provide them with the confidence to employ cloud services. A mechanism to interpret, reason over, and enforce usage policies within clouds in an automated manner will allow cloud providers to optimize resource allocation while ensuring safety and security of cloud users' data. A correct estimation of the cost involved in enforcing usage policies will further enable cloud providers with business opportunities such as yield management and price differentiation. 
+used within a system. This encompasses policy specification languages, licensing mechanisms, policy expression and reasoning mechanisms, policy enforcement mechanisms, usage tracking, along with supporting authentication and encryption mechanisms~\cite{JaHeLa:10,PaSa:04}. The ability to express fine-grained usage policies will provide cloud users with greater trust regarding the usage of their data within clouds, and will provide them with the confidence to employ cloud services. A mechanism to interpret, reason over, and enforce usage policies within clouds in an automated manner will allow cloud providers to optimize resource allocation while ensuring safety and security of cloud users' data. A correct estimation of the cost involved in enforcing usage policies will further enable cloud providers with business opportunities such as yield management and price differentiation. 
 
-This paper introduces the notion of usage management in cloud computing and provides an in-depth analysis of the challenges and principles involved in the design of an open, interoperable usage management framework that operates over a distributed cloud computing environment. The analyses include application of well-known principles of system design and standards~\cite{BlCl:01,Cl:88,ClWrSoBr:02}, research developments in the areas of usage control~\cite{PaSa:04,JaHeLa:10}, policy languages design principles~\cite{JaHeMa:06}, digital rights management (DRM) systems~\cite{JaHe:09},  and interoperability~\cite{JaHe:04,HeJa:05,KoLaMaMi:04} towards the development of such a framework.
+This chapter introduces the notion of usage management in cloud computing and provides an in-depth analysis of the challenges and principles involved in the design of an open, interoperable usage management framework that operates over a distributed cloud computing environment. The analyses include application of well-known principles of system design and standards~\cite{BlCl:01,Cl:88,ClWrSoBr:02}, research developments in the areas of usage control~\cite{JaHeLa:10,PaSa:04}, policy languages design principles~\cite{JaHeMa:06}, digital rights management (DRM) systems~\cite{JaHe:09},  and interoperability~\cite{HeJa:05,JaHe:04,KoLaMaMi:04} towards the development of such a framework.
 
-The paper delves into how such a framework will improve upon the status quo by leveraging  existing security mechanisms, and enabling automated reasoning of policies with respect to the underlying cloud security infrastructure. Based on these analyses, a system for expressing and reasoning about usage management within a distributed cloud environment is proposed that makes use of a common cloud ontology shared by different cloud services. The proposed system architecture enables usage policies to be expressed in different policy languages, and interpreted across various cloud environments. 
+The chapter delves into how such a framework will improve upon the status quo by leveraging  existing security mechanisms, and enabling automated reasoning of policies with respect to the underlying cloud security infrastructure. Based on these analyses, a system for expressing and reasoning about usage management within a distributed cloud environment is proposed that makes use of a common cloud ontology shared by different cloud services. The proposed system architecture enables usage policies to be expressed in different policy languages, and interpreted across various cloud environments. 
 
-The remainder of the paper is structured as follows. Section~\ref{sec:motivation} introduces the need for incorporating usage management in cloud computing. An analysis of the features of a usage management framework for cloud computing environments is provided in Section~\ref{sec:clouds-usage}. In Section~\ref{sec:architecture} a preliminary architecture for usage management is proposed that makes use of a common cloud ontology and enables use of multiple policy languages. We then move into the challenges associated with scaling these kinds of solutions to cloud environments, and then close the chapter.
+The remainder of the chapter is structured as follows. Section~\ref{sec:motivation} introduces the need for incorporating usage management in cloud computing. An analysis of the features of a usage management framework for cloud computing environments is provided in Section~\ref{sec:clouds-usage}. In Section~\ref{sec:architecture} a preliminary architecture for usage management is proposed that makes use of a common cloud ontology and enables use of multiple policy languages. We then move into the challenges associated with scaling these kinds of solutions to cloud environments. In Section~\ref{sec:composite} we show how control in cloud can be extended to composite cloud system. Finally, in Section~\ref{sec:conclusions}, we provide useful conclusions and future work. 
 
 \section{Motivation and Related Work}\label{sec:motivation}
 In the recent years, cloud computing has  managed to emerge as a computing platform that allows computing services to be consumed as a utility by consumers. In cloud computing, applications, systems software, and hardware are offered as utility services to consumers over the Internet. In service-based architectures, service consumers need to be provided with  highly reliable services that meet their expectations. Service consumers indicate these expectations in terms of QoS parameters that are expressed in the form of an SLA negotiated with the service provider. 
@@ -38,12 +45,12 @@ The handling or use of cloud users' data within the cloud by different services 
 
 Existing cloud infrastructures and SLA frameworks are ill-equipped to address the requirements and challenges of usage management in distributed cloud systems. At present, cloud providers enable usage management features via rudimentary techniques involving a  one-size-fits-all option, where cloud users have little or no say in expressing usage policies over their data. For example, the Amazon S3 storage service allows a region-based facility where data stored in one region are guaranteed not to leave that particular region~\cite{AWS}. Such options are too coarse and simplistic to address cloud users' concerns. 
 
-Existing service-based computing paradigms such as web services, clusters and grid computing use well-established SLA frameworks that enable expression, interpretation, monitoring, control and enforcement of SLA terms~\cite{WSA, WSLA, WSP,PaRaSh:09}. However, the SLAs supported by these frameworks focus on performance metrics such as availability, reliability, bandwidth, response times, instructions per second, etc. ~\cite{PaSc:06}. Also, the privacy and security metrics supported by these frameworks focus primarily on encryption of data. Performance-based metrics are end-to-end, meaning that users are concerned only with the delivery of performance, and not about the measures taken by service providers to deliver the service. The service provider simply maintains the required quality of service by allocating more resources or employing additional third party services. Compared to this, usage management requirements are different since cloud users potentially have a say in every action taken on their data, throughout the lifetime of the data in the cloud, including scenarios where the data are passed on to a third party provider. 
+Existing service-based computing paradigms such as web services, clusters and grid computing use well-established SLA frameworks that enable expression, interpretation, monitoring, control and enforcement of SLA terms~\cite{WSLA,WSA,PaRaSh:09,WSP}. However, the SLAs supported by these frameworks focus on performance metrics such as availability, reliability, bandwidth, response times and instructions per second to name a few~\cite{PaSc:06}. Also, the privacy and security metrics supported by these frameworks focus primarily on encryption of data. Performance-based metrics are end-to-end, meaning that users are concerned only with the delivery of performance, and not about the measures taken by service providers to deliver the service. The service provider simply maintains the required quality of service by allocating more resources or employing additional third party services. Compared to this, usage management requirements are different since cloud users potentially have a say in every action taken on their data, throughout the lifetime of the data in the cloud, including scenarios where the data are passed on to a third party provider. 
 
 Usage management requirements are significantly different from QoS-based metrics, and present a new set challenges that are beyond the capabilities of the existing SLA frameworks. It is therefore necessary to design a separate mechanism for usage management that will enable persistent, automated management data usage control, while allowing seamless flow of data in a distributed cloud infrastructure. 
 
 \section{Usage Management in Clouds}\label{sec:clouds-usage}
-There exists a rich body of research in the areas of access control~\cite{BlPa:73,BlPa:76}, usage control~\cite{PaSa:04,JaHeLa:10} and DRM~\cite{ArHu:07,HaWe:08, ODRL-req,JaHe:08,XrML-spec}, all of which require usage management.  In this section an analysis of the challenges associated with developing a usage management framework for cloud computing infrastructures is provided. A discussion of how advancements in these areas areas can be leveraged by usage management frameworks is also provided below.
+There exists a rich body of research in the areas of access control~\cite{BlPa:73,BlPa:76}, usage control~\cite{JaHeLa:10,PaSa:04} and DRM~\cite{ ODRL-req,ArHu:07,HaWe:08,JaHe:08,XrML-spec}, all of which require usage management.  In this section an analysis of the challenges associated with developing a usage management framework for cloud computing infrastructures is provided. A discussion of how advancements in these areas areas can be leveraged by usage management frameworks is also provided below.
 
 \subsection{Overview}
 Figure~\ref{fig:overview} shows a high-level model of the manner in which existing systems implement usage management of user data. In this setup usage management policies are statically defined in an SLA by allowing cloud users to choose from a set of options provided by the cloud provider. The usage policy monitoring in existing cloud systems, in many instances, is carried out by a person (e.g., a lawyer) as shown in Figure~\ref{fig:overview}.  Such a static approach for handling usage policies presents numerous problems for usage management that stifle full-fledged expression of cloud users' concerns regarding appropriate usage of their data within the cloud.   
@@ -51,14 +58,14 @@ Figure~\ref{fig:overview} shows a high-level model of the manner in which existi
 
 \begin{figure}[!t]
 \centering
-\includegraphics[scale=0.4]{Overview.pdf}
+\includegraphics[scale=0.5]{Overview.pdf}
 \caption{Usage management in existing cloud environment.}
 \label{fig:overview}
 \end{figure}
 
 A natural consequence of static or hardwired handling of usage policies is that it prevents incorporation of complex usage policies. In case of solutions that follow the ``one-size-fits-all'' model, users have a limited say or options to express data usage terms. Furthermore, such approaches leaves cloud users with little or no room for negotiation of usage terms with cloud providers. Another major disadvantage of such a static approach is that there does not exist an interconnection between policies and the cloud infrastructure. This means that usage policies are not actionable, and it is not possible to reason about them with respect to the capabilities and limitations of the underlying cloud infrastructure. The lack of reasoning capabilities leads to under-utilization of cloud resources. While this impediment is not a major issue when dealing with simple policies, under-utilization of resources can cause serious revenue loss for cloud providers as the number of users and complexity of policies increase. 
 
-In order to address these concerns, it is necessary that usage policies be managed by means of a usage management framework that will operate over a distributed cloud infrastructure as shown in Figure~\ref{fig:cloud-umf}. In this figure, a  cloud user and a cloud provider negotiate a usage policy and the price associated with the policy in an automated manner via software agents. Existing negotiation frameworks such as the Java Agent Development Framework and the FIPA negotiation protocols can be used for this purpose~\cite{BePoRi:02}.  Next, the policy is represented in a machine-readable and machine-actionable form. A rich body of research in the areas of rights expression languages~\cite{ODRL-req,JaHe:08,XrML-spec}, usage control languages~\cite{PaSa:04,HiPrBaScWa:07}, and access control languages~\cite{BlPa:76}, for formal representation of various usage semantics exists that can be leveraged to this effect. The policy is then interpreted and enforced over a distributed cloud infrastructure making use of existing trusted computing platforms to provide a comprehensive usage management solution. Significant business opportunities become available if these SLAs are easily customizable, allowing for price differentiation and yield management. In order achieve this, a usage management framework operating over a distributed cloud environment needs to be developed that satisfies the following goals:
+In order to address these concerns, it is necessary that usage policies be managed by means of a usage management framework that will operate over a distributed cloud infrastructure as shown in Figure~\ref{fig:cloud-umf}. In this figure, a  cloud user and a cloud provider negotiate a usage policy and the price associated with the policy in an automated manner via software agents. Existing negotiation frameworks such as the Java Agent Development Framework and the FIPA negotiation protocols can be used for this purpose~\cite{BePoRi:02}.  Next, the policy is represented in a machine-readable and machine-actionable form. A rich body of research in the areas of rights expression languages~\cite{ODRL-req,JaHe:08,XrML-spec}, usage control languages~\cite{HiPrBaScWa:07,PaSa:04}, and access control languages~\cite{BlPa:76}, for formal representation of various usage semantics exists that can be leveraged to this effect. The policy is then interpreted and enforced over a distributed cloud infrastructure making use of existing trusted computing platforms to provide a comprehensive usage management solution. Significant business opportunities become available if these SLAs are easily customizable, allowing for price differentiation and yield management. In order achieve this, a usage management framework operating over a distributed cloud environment needs to be developed that satisfies the following goals:
 
 \begin{enumerate}
 \item Fine-grained expression of usage policies that can be negotiated between cloud users and cloud providers. 
@@ -68,7 +75,7 @@ In order to address these concerns, it is necessary that usage policies be manag
 
 \begin{figure}[!t]
 \centering
-\includegraphics[scale=0.4]{cloud-umf}
+\includegraphics[scale=0.5]{cloud-umf}
 \caption{Usage management in cloud.}
 \label{fig:cloud-umf}
 \end{figure}
@@ -86,11 +93,12 @@ The challenges presented by the specifics of a distributed cloud infrastructure 
 A distributed cloud environment presents a unique set of challenges for the development of a framework that will enable usage management of data that are stored, routed and processed by different services operating within the cloud environment. Figure~\ref{fig:cloud-infra} shows the layout of a typical cloud computing environment. A distributed cloud environment may consist of one or more cloud services that are owned by different entities. Services are often composable, and available to users or other services via web-services technologies such as REST and SOAP.  The services provide virtualized resources to cloud users that are provisioned on demand to meet the SLA terms that are negotiated between the cloud provider and the user. Within a cloud service implementation, the set of virtual resources are mapped onto a distributed infrastructure of physical resources as shown in Figure~\ref{fig:cloud-infra}. The desired features of a usage management framework for clouds, discussed below, are based on this generalized layout of distributed cloud systems.
 
 \subsubsection {An open interoperable framework}
+
 In order to enable data from different cloud users to move seamlessly across different service providers, and leverage the use of existing security mechanisms, it is necessary to design an open usage management framework. The framework must provide a scaffolding upon which different technologies can be built, that can interoperate via standardized interfaces. In order to achieve this, it is necessary to identify focal points within the framework that need to standardized, and areas that should {\em not} be standardized to enable differentiation and innovation~\cite{BlCl:01}. 
 
 In order for the usage policies to be consistently interpreted across different cloud providers, it is necessary to develop a common, extensible cloud ontology. All usage policies need to be developed using such a common cloud ontology.  There have been efforts towards the development of such an ontology, although not for the purpose of usage policy specification~\cite{YuBuDa:08}. 
 
-Different cloud services will have different requirements as far as policy language characteristics are concerned. These characteristics  include expressive power, reasoning power, and ease of use. Development of  a single standard policy language that intends to satisfy all these requirements will be bloated, and difficult to formalize and reason over. Moreover agreement on a standard policy language will stifle innovation, and such a  language may be unable to address the needs of  future cloud systems. Hence the framework must accommodate coexistence of multiple languages that interoperate, and allow seamless movement of data within the cloud. However, existence of multiple policy languages have lead to serious problems with interoperability and user satisfaction in other fields such as DRM~\cite{JaHeMa:06}. To prevent this, rather than having each service provider understand every other policy language, policy interpretation, validation and reasoning need to be carried out via standard interfaces and a common ontology agreed upon by all cloud providers. Existing policy management frameworks for distributed systems can be used to address these concerns~\cite{JaHeLa:10,DaDuLuSl:01}. This approach, explained in the next section, will provide enough room for the existence of multiple languages, and will allow for incorporation of new languages. 
+Different cloud services will have different requirements as far as policy language characteristics are concerned. These characteristics  include expressive power, reasoning power, and ease of use. Development of  a single standard policy language that intends to satisfy all these requirements will be bloated, and difficult to formalize and reason over. Moreover agreement on a standard policy language will stifle innovation, and such a  language may be unable to address the needs of  future cloud systems. Hence the framework must accommodate coexistence of multiple languages that interoperate, and allow seamless movement of data within the cloud. However, existence of multiple policy languages have lead to serious problems with interoperability and user satisfaction in other fields such as DRM~\cite{JaHeMa:06}. To prevent this, rather than having each service provider understand every other policy language, policy interpretation, validation and reasoning need to be carried out via standard interfaces and a common ontology agreed upon by all cloud providers. Existing policy management frameworks for distributed systems can be used to address these concerns~\cite{DaDuLuSl:01,JaHeLa:10}. This approach, explained in the next section, will provide enough room for the existence of multiple languages, and will allow for incorporation of new languages. 
 
 Figure~\ref{fig:sla-usage} shows how usage management needs to incorporated in existing SLA frameworks and resource allocation mechanisms. At every level in a cloud infrastructure where resource allocation takes place, the resource allocation process is over-ridden by data usage policy. This means, prior to allocation of resources,  resource allocation controllers must consult usage policies associated with the data for which resources are being allocated. 
 
@@ -105,7 +113,7 @@ Another advantage of dynamic interpretation is that it takes into account the ch
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=9cm]{sla-usage}
+\includegraphics[width=4in]{sla-usage}
 \caption{Cloud usage management operating with SLA QoS monitoring.}
 \label{fig:sla-usage}
 \end{figure}
@@ -119,7 +127,7 @@ Enabling persistence in usage control requires the use of sophisticated naming, 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[scale=0.4]{dynamics}
+\includegraphics[width=4in]{dynamics}
 \caption{Persistence of policies across data aggregations.}
 \label{fig:dynamics}
 \end{figure}
@@ -144,12 +152,7 @@ The underlying principle driving the design of proposed architecture is that pol
 \label{fig:cloud-setup}
 \end{figure}
 
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=13cm]{cloud-working}
-\caption{Operation of usage management in cloud environment.}
-\label{fig:cloud-working}
-\end{figure*}
+
 
 As an example, consider a context for a cloud service consisting of  different data processing sub-services ({\em dps}). A simplified context may consist of the following parameters: $\{date, dps\_location, dps\_trust-level \}$, where $date$ represents the global date, $dps\_location$ represents the location of the sub-service, and $dps\_trust-level$ represents the trust level of the sub-service ranging form 1-5. Usage policies for the data are then expressed as restrictions over these parameters. For example, a rudimentary usage policy might state that {\em `` Data set X can be processed only by a $dps$ located in the USA, with trust levels greater than 4, and not beyond December 16th, 2013''. }
 
@@ -157,12 +160,25 @@ Even though the example presented above is oversimplified, the point to note is 
 
 In the proposed architecture, the policy languages used for expressing the policies are not standardized. Different cloud services may use their choice policy languages depending on their expression and reasoning requirements. However, in order for policies to be interpreted across different cloud environments, it is necessary that all policies make use the terms defined in the common cloud ontology that is shared by all cloud services. The manner in which policies are interpreted in the operational phase is explained next. 
 
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=13cm]{cloud-working}
+\caption{Operation of usage management in cloud environment.}
+\label{fig:cloud-working}
+\end{figure*}
+
 \subsection{Working Phase}
 The Working phase consists of policy management, policy interpretation and validation via a common usage management cloud service that is shared by different services within the cloud. The operation of usage management cloud service is shown in Figure~\ref{fig:cloud-working}. Instead of standardizing a common policy language for all cloud services, in the proposed architecture, the usage management cloud service provides a standard web interface for managing policies. This standard interface allows policies to be registered, retrieved, attached to data sets, deleted, validated, interpreted, reasoned, and merged with other policies by different cloud services via an extensible web interface. 
 
 In the proposed system, usage policies are validated by cloud services in the following manner. Cloud services query the usage management service for a particular action on a particular data set by providing the context under which the action is intended to be carried out. The usage management service then evaluates whether the policy and the context are interoperable by comparing the terms. If the terms are consistent, then the policy restrictions are evaluated with respect to the current state of the context provided. If the restrictions are satisfied, the action is given a go ahead, otherwise it is denied. Every policy maintains a state or history of the usage performed by different cloud services on the data set. Such a history is commonly maintained in usage control and DRM languages to enforce count limits or obligation semantics on certain actions over a data set. Data usage histories can also be potentially used to validate data use with respect to policy terms, and provide cloud users with usage tracking services for their data.
 
 Cloud services can register policies expressed in different policy languages,  however, all the policies are queried by means of a standard web interface. This approach ensures that the syntax and semantics of different policy languages is hidden from the cloud services that need to query usage policies. This precludes the need for every cloud service provider to deploy an interpreter for different policy languages. In addition, a service provider can introduce a new policy language for its operations, along side its previous policies expressed in the old policy language in a seamless manner. Figure~\ref{fig:cloud-working} shows how multiple policy languages can operate behind a common, standardized web interface for usage policy management.
+
+\section{Control in Composite Cloud Systems}
+\label{sec:composite}
+In this section we describe how the usage management framework can now be extended to composite cloud systems. We first show how to create a controllable system with feedback suitable for system evaluation from the perspective of a single provider. Here, we
+will address the constraints and advantages of such an approach and how providers could begin to offer these kinds of services. In this first example, we will focus on QoS data specifically. Then, we will extend our single provider system to provide control over attributes more specific to the usage management domain, with examples and associated analysis. Finally, we extend the single provider model to a system deployed to multiple cloud providers in a realistic system-of-systems scenario.
+
 
 \subsection{Single Provider Feedback System}\label{sec:single}
 Controllable cloud systems enable providers to supply more closely targeted, cost effective services while at the same time providing service consumers with the confidence that the data and other artifacts their systems use are protected.  With that as our eventual goal, we first begin with a simple system managing currently accepted QoS parameters - system attributes like bandwidth, system memory allocation, and the like.  Specifically, we intend to provide the ability to monitor and control a virtual system hosted on a cloud infrastructure so that response time for a hosted application falls within a specific range of accepted parameters.
@@ -181,8 +197,8 @@ These system attributes lead us to a system architecture that is beginning to lo
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=3in]{Single-QoS}
-\caption{Single Cloud Provider, Quality of Service.}
+\includegraphics[width=4in]{SCP}
+\caption{Single cloud provider control system for quality of service.}
 \label{fig:single-qos}
 \end{figure}
 
@@ -208,8 +224,8 @@ Finally, if needed the \textit{Resource Allocator} will dispatch messages to the
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=3in]{feedback}
-\caption{Control System Perspective.}
+\includegraphics[width=4in]{feedback}
+\caption{Control system perspective.}
 \label{fig:feedback}
 \end{figure}
 
@@ -234,8 +250,8 @@ Using a data stream as an example, we recognize some situations we clearly need 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=3in]{Single-UM}
-\caption{Single Cloud Provider, Usage Management.}
+\includegraphics[width=4in]{SCP-UM}
+\caption{Single cloud provider feedback system with usage management.}
 \label{fig:single-um}
 \end{figure}
 
@@ -255,19 +271,22 @@ We have briefly examined a single case controlling quality-of-service parameters
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=3in]{Multiple}
-\caption{Multiple Cloud Providers and hosted application.}
+\includegraphics[width=4in]{Multiple}
+\caption{Multiple cloud providers and hosted application.}
 \label{fig:multiple}
 \end{figure}
 
-We now have three different cloud providers and various system layers of a sample application mapped to those providers.  The first provider, $ cp $, provides hosting for the \textit{User Interface} and \textit{Domain} layers.  The second provider, $ cp' $, provides queuing services to the application, while the third and final provider, $ cp'' $, provides data storage.  Each cloud provider contains the same elements contained by the providers in the previous sections, including a \textit{Resource Allocator} specific to that cloud provider.
+We now have three different cloud providers and various system layers of a sample application mapped to those providers.  The first provider, $cp_1$, provides hosting for the \textit{User Interface} and \textit{Domain} layers.  The second provider, $cp_2$, provides queuing services to the application, while the third and final provider, $cp_3$, provides data storage.  Each cloud provider contains the same elements contained by the providers in the previous sections, including a \textit{Resource Allocator} specific to that cloud provider.
 
 Also, we have a new \textit{Resource Allocator}, an \textit{Application Resource Allocator}.  This new controller is required to provide control over the resources from the application's perspective.  The provider allocation controllers are sufficient for providing control over cloud specific resources from the provider's perspective, but cannot provide the appropriate view into the needs of the application as the application's needs span provider controller domains. As a result, we need a new controller element able to take a holistic, end-to-end view of the applications component systems that can then tune those systems so that application performance is effectively managed.  This effectively gives us a hierarchy of \textit{Resource Allocators}, each dedicated to optimizing a particular combination of resources, ranging from application-centric resources to provider-centric resources or other dependencies.
 
 Here, we have a simple representation of a composite cloud system, a true system-of-systems, in the application implemented on the various cloud providers.  Furthermore, we now have the beginnings of an exponential problem with respect to \textit{application} control.  The complexity of a cloud provider may increase linearly, but the number of possible combinations of tunable parameters is exponential in the number of component systems, hinting at the beginnings of a potentially intractable problem.
 
 \section{Conclusions and Future Work}\label{sec:conclusions}
-In this paper we introduced the notion of usage management in cloud computing environment. Cloud computing exhibits a unique set of characteristics that require usage management of users' data according to user concerns and expectations. We analyzed the challenges involved in the design and development of a framework for usage management in cloud environments. We showed that such a framework needs to be open to leverage existing security technologies and SLA frameworks. The framework needs to exhibit features such as support for multiple policy languages, existence of a common cloud ontology, dynamic interpretation and persistence of usage enforcement. Finally a preliminary framework that supports multiple policy languages was introduced that provides a platform upon which such a framework can be built. 
+In this chapter we introduced the notion of usage management in cloud computing environment. Cloud computing exhibits a unique set of characteristics that require usage management of users' data according to user concerns and expectations. We analyzed the challenges involved in the design and development of a framework for usage management in cloud environments. We showed that such a framework needs to be open to leverage existing security technologies and SLA frameworks. The framework needs to exhibit features such as support for multiple policy languages, existence of a common cloud ontology, dynamic interpretation and persistence of usage enforcement. Then we showed a preliminary framework that supports multiple policy languages was introduced that provides a platform upon which such a framework can be built. 
+
+In the later part of the paper we showed how to leverage the usage management mechanism to  manage an infrastructure dedicated to monitoring and tuning distributed and virtualized computing systems. We began by framing the problem with customary QoS metrics, including a hypothetical system architecture to frame discussion. We then moved into applying usage management to data entities over the infrastructure, added new requirements and components to the system
+architecture, and noticed complexity trending. We finally presented a composite cloud system firmly in the system-of-systems domain addressing additional requirements and possible intractability of application resource allocation and control.
 
 Future work involves efforts towards the development of a common extensible cloud ontology that will provide a common vocabulary for cloud environments and enable interoperability. Such an ontology needs be developed by taking into consideration the requirements of different cloud services. In addition, it is necessary to standardize interfaces for other security mechanisms mentioned in the paper that can be incorporated within the framework. Finally, existing policy languages can be modified to be incorporated within the framework, and new ones need to designed to address the specific needs of different cloud services. 
 
