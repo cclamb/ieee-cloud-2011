@@ -1,0 +1,178 @@
+\begin{thebibliography}{10}
+
+\bibitem{ODRL-req}
+Open {D}igital {R}ights {L}anguage {ODRL} {V}ersion 2 {R}equirements.
+\newblock ODRL, Feb. 2005.
+
+\bibitem{AWS}
+Amazon {W}eb {S}ervices: {O}verview of {S}ecurity {P}rocesses, Sep. 2008.
+
+\bibitem{ArHu:07}
+Alapan Arnab and Andrew Hutchison.
+\newblock Persistent {A}ccess {C}ontrol: {A} {F}ormal {M}odel for {DRM}.
+\newblock In {\em DRM '07: Proceedings of the 2007 ACM workshop on Digital
+  Rights Management}, pages 41--53, New York, NY, USA, 2007. ACM.
+
+\bibitem{BlPa:73}
+D.~Elliott Bell and Leonard J.~La Padula.
+\newblock Secure {C}omputer {S}ystems: {M}athematical {F}oundations, {MTR-2547,
+  Vol. I}.
+\newblock Technical report, The MITRE Corporation, Bedford, MA, March 1, 1973.
+\newblock ESD-TR-73-278-I.
+
+\bibitem{BlPa:76}
+D.~Elliott Bell and Leonard J.~La Padula.
+\newblock Secure {C}omputer {S}ystem: {U}nified {E}xposition and {M}ultics
+  {I}nterpretation, {MTR-2997, Rev. 1}.
+\newblock Technical report, The MITRE Corporation, Bedford, MA, March 1976.
+\newblock ESD-TR-75-306.
+
+\bibitem{BePoRi:02}
+Fabio Bellifemmine, Agostino Poggi, and Giovanni Rimassa.
+\newblock {JADE}: A {FIPA} {C}ompliant {A}gent {F}ramework.
+\newblock In {\em Proceedings of the Practical Applications of Intelligent
+  Agents}, pages 97--108, London, U.K., 1999.
+
+\bibitem{BlCl:01}
+Marjory~S. Blumenthal and David~D. Clark.
+\newblock Rethinking the design of the {I}nternet: {T}he end-to-end arguments
+  vs. the brave new world.
+\newblock {\em ACM Transactions on Internet Technology}, 1(1):70--109, Aug.
+  2001.
+
+\bibitem{Bu:09}
+Rajkumar Buyya.
+\newblock Market-{O}riented {C}loud {C}omputing: {V}ision, {H}ype, and
+  {R}eality of {D}elivering {C}omputing as the 5th {U}tility.
+\newblock In {\em Proceedings of the 2009 9th IEEE/ACM International Symposium
+  on Cluster Computing and the Grid}, CCGRID '09, Washington, DC, USA, 2009.
+  IEEE Computer Society.
+
+\bibitem{BuYeVeBrBr:09}
+Rajkumar Buyya, Chee~Shin Yeo, Srikumar Venugopal, James Broberg, and Ivona
+  Brandic.
+\newblock Cloud {C}omputing and {E}merging {IT} {P}latforms: {V}ision, {H}ype,
+  and {R}eality for {D}elivering {C}omputing as the 5th {U}tility.
+\newblock {\em Future Generation Computer Systems}, 25(6):599--616, 2009.
+
+\bibitem{Cl:88}
+David~D. Clark.
+\newblock The {D}esign {P}hilosophy of the {DARPA} {I}nternet {P}rotocols.
+\newblock In {\em {ACM SIGCOMM}}, pages 106--114, Stanford, CA, Aug. 1988.
+
+\bibitem{ClWrSoBr:02}
+David~D. Clark, John Wroclawski, Karen~R. Sollins, and Robert Braden.
+\newblock Tussle in {C}yberspace: Defining {T}omorrow's {I}nternet.
+\newblock In {\em {SIGCOMM}}, pages 347--356, Pittsburg, Pennsylvania, USA,
+  Aug. 2002.
+
+\bibitem{DaDuLuSl:01}
+Nicodemos Damianou, Naranker Dulay, Emil Lupu, and Morris Sloman.
+\newblock The {P}onder {P}olicy {S}pecification {L}anguage.
+\newblock In {\em Proceedings of the International Workshop on Policies for
+  Distributed Systems and Networks}, POLICY '01, pages 18--38, London, UK,
+  2001. Springer-Verlag.
+
+\bibitem{HaWe:08}
+Joseph~Y. Halpern and Vicky Weissman.
+\newblock A {F}ormal {F}oundation for {XrML}.
+\newblock {\em J. ACM}, 55(1):1--42, 2008.
+
+\bibitem{HeJa:05}
+Gregory~L. Heileman and Pramod~A. Jamkhedkar.
+\newblock {DRM} {I}nteroperability {A}nalysis from the {P}erspective of a
+  {L}ayered {F}ramework.
+\newblock In {\em Proceedings of the Fifth ACM Workshop on Digital Rights
+  Management}, pages 17--26, Alexandria, VA, Nov. 2005.
+
+\bibitem{HiPrBaScWa:07}
+Manuel Hilty, Alexander Pretschner, David Basin, Christian Schaefer, and Thomas
+  Walter.
+\newblock A {P}olicy {L}anguage for {D}istributed {U}sage {C}ontrol.
+\newblock In {\em Proceedings of the 12th European Symposium On Research In
+  Computer Security}, pages 531--546, Dresden, Germany, Sept. 2007.
+
+\bibitem{WSLA}
+IBM.
+\newblock {\em Web {S}ervice {L}evel {A}greement ({WSLA}) {L}anguage
+  {S}pecification}, Jan. 2003.
+
+\bibitem{JaHe:04}
+Pramod~A. Jamkhedkar and Gregory~L. Heileman.
+\newblock {DRM} as a {L}ayered {S}ystem.
+\newblock In {\em Proceedings of the Fourth ACM Workshop on Digital Rights
+  Management}, pages 11--21, Washington, DC, Oct. 2004.
+
+\bibitem{JaHe:08a}
+Pramod~A. Jamkhedkar and Gregory~L. Heileman.
+\newblock A {F}ormal {C}onceptual {M}odel for {R}ights.
+\newblock In {\em Proceedings of the Eighth ACM Workshop on Digital Rights
+  Management}, Alexandria, VA, Nov. 2008.
+
+\bibitem{JaHe:08}
+Pramod~A. Jamkhedkar and Gregory~L. Heileman.
+\newblock {\em Handbook of Research on Secure Multimedia Distribution}, chapter
+  Rights Expression Languages.
+\newblock {IGI} Publishing, 2008.
+
+\bibitem{JaHe:09}
+Pramod~A. Jamkhedkar and Gregory~L. Heileman.
+\newblock Digital {R}ights {M}anagement {A}rchitectures.
+\newblock {\em Computers Electrical Engineering}, 35(2):376--394, 2009.
+
+\bibitem{JaHeLa:10}
+Pramod~A. Jamkhedkar, Gregory~L. Heileman, and Chris Lamb.
+\newblock An {I}nteroperable {U}sage {M}anagement {F}ramework.
+\newblock In {\em Proceedings of the Tenth ACM Workshop on Digital Rights
+  Management}, Chicago, Oct. 2010.
+
+\bibitem{JaHeMa:06}
+Pramod~A. Jamkhedkar, Gregory~L. Heileman, and Ivan Martinez-Ortiz.
+\newblock The {P}roblem with {R}ights {E}xpression {L}anguages.
+\newblock In {\em Proceedings of the Sixth ACM Workshop on Digital Rights
+  Management}, pages 59--67, Alexandria, VA, Nov. 2006.
+
+\bibitem{KoLaMaMi:04}
+Rob~H. Koenen, Jack Lacy, Michael MacKay, and Steve Mitchell.
+\newblock The {L}ong {M}arch to {I}nteroperable {D}igital {R}ights
+  {M}anagement.
+\newblock {\em Proceedings of the IEEE}, 92(6):883--897, 2004.
+
+\bibitem{WSA}
+Open Grid Forum.
+\newblock {\em Web {S}ervices {A}greement {S}pecification}, Mar. 2007.
+
+\bibitem{PaSa:04}
+Jaehong Park and Ravi Sandhu.
+\newblock The {UCON}$_{ABC}$ {U}sage {C}ontrol {M}odel.
+\newblock {\em ACM Trans. Inf. Syst. Secur.}, 7(1):128--174, 2004.
+
+\bibitem{PaSc:06}
+Adrian Paschke and Elisabeth Schnappinger-Gerull.
+\newblock A {C}ategorization {S}cheme for {SLA} {M}etrics.
+\newblock In {\em Proceedings of Multi-Conference Information Systems
+  (MKWI06)}, Feb. 2006.
+
+\bibitem{PaRaSh:09}
+Pankesh Patel, Ajith Ranabahu, and Amit Sheth.
+\newblock Service {L}evel {A}greement in {C}loud {C}omputing.
+\newblock In {\em Proceedings of the Workshop on Best Practices in Cloud
+  Computing: Implementation and Operational Implications for the Cloud at ACM
+  International Conference on Object-Oriented Programming, Systems, Languages,
+  and Applications}, Orlando, FL, Oct. 2009.
+
+\bibitem{WSP}
+World Wide Web Consortium.
+\newblock {\em Web {S}ervices {P}olicy 1.5 {F}ramework}, Sep. 2007.
+
+\bibitem{XrML-spec}
+e{X}tensible {R}ights {M}arkup {L}anguage ({XrML}) 2.0 {S}pecification,
+  November 2001.
+
+\bibitem{YuBuDa:08}
+Lamia Youseff, Maria Butrico, and Dilma~Da Silva.
+\newblock Toward a {U}nified {O}ntology of {C}loud {C}omputing.
+\newblock In {\em Proceedings of Grid Computing Environments Workshop}, pages
+  1--10, Austin, Tx, Nov. 2008.
+
+\end{thebibliography}

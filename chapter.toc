@@ -1,0 +1,18 @@
+\contentsline {chapter}{\numberline {1}Usage Management in the Cloud}{2}
+\contentsline {section}{\numberline {1.1}Introduction}{2}
+\contentsline {section}{\numberline {1.2}Motivation and Related Work}{4}
+\contentsline {section}{\numberline {1.3}Usage Management in Clouds}{6}
+\contentsline {subsection}{\numberline {1.3.1}Overview}{6}
+\contentsline {subsection}{\numberline {1.3.2}Challenges and Features}{8}
+\contentsline {subsubsection}{An open interoperable framework}{9}
+\contentsline {subsubsection}{Dynamic interpretation}{10}
+\contentsline {subsubsection}{Persistence}{11}
+\contentsline {subsubsection}{Policy and cloud infrastructure interconnection}{12}
+\contentsline {section}{\numberline {1.4}Proposed Architecture}{13}
+\contentsline {subsection}{\numberline {1.4.1}Setup Phase}{14}
+\contentsline {subsection}{\numberline {1.4.2}Working Phase}{15}
+\contentsline {section}{\numberline {1.5}Control in Composite Cloud Systems}{16}
+\contentsline {subsection}{\numberline {1.5.1}Single Provider Feedback System}{17}
+\contentsline {subsection}{\numberline {1.5.2}Single Provider Feedback System with Usage Management}{21}
+\contentsline {subsection}{\numberline {1.5.3}Scaling to Multiple Providers}{23}
+\contentsline {section}{\numberline {1.6}Conclusions and Future Work}{24}
