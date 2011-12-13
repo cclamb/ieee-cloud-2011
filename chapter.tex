@@ -1,14 +1,21 @@
-\documentclass[10pt,letterpaper]{book}
+\documentclass{book}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage[pdftex]{graphicx}
+\usepackage{setspace}
+\usepackage{Generic}
 \author{Christopher C. Lamb, Pramod A. Jamkhedkar, Gregory L. Heileman}
 \title{Usage Management in the Cloud}
 \begin{document}
-\maketitle
+\pagenumbering{roman}
+\begin{doublespace}
+\maketitle 
+\frontmatter
 \tableofcontents
+\mainmatter
+\pagenumbering{arabic}
 \chapter{Usage Management in the Cloud}
 \section{Introduction}
 The characteristics of cloud computing services tend to differ from those of grid and cluster-based computing applications.  Specifically, cloud services tend to be more market oriented, and they typically host entire user applications within the distributed cloud environment. These characteristics raise serious concerns from cloud users' perspective regarding the manner in which their data are handled or used by the cloud services. These metrics are orthogonal to the traditional performance-oriented quality of service (QoS) metrics, and their semantics are well beyond encryption and privacy requirements. Existing service level agreement (SLA) frameworks focus primarily on performance-oriented QoS parameters, and are not designed for expressing and enforcing policies to control the manner and restrictions under which users' data need to be handled~\cite{WSA, WSLA, WSP,PaRaSh:09}. User concerns on data handling in the cloud along with the limitations of existing SLA frameworks to express, reason and enforce data usage policies in an automated manner creates the need for usage management in cloud computing. 
@@ -265,6 +272,7 @@ In this paper we introduced the notion of usage management in cloud computing en
 Future work involves efforts towards the development of a common extensible cloud ontology that will provide a common vocabulary for cloud environments and enable interoperability. Such an ontology needs be developed by taking into consideration the requirements of different cloud services. In addition, it is necessary to standardize interfaces for other security mechanisms mentioned in the paper that can be incorporated within the framework. Finally, existing policy languages can be modified to be incorporated within the framework, and new ones need to designed to address the specific needs of different cloud services. 
 
 \bibliographystyle{plain}
-% argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{drm}
+
+\end{doublespace}
 \end{document}
